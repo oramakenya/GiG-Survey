@@ -1,0 +1,293 @@
+export interface CountryData {
+  name: string;
+  flag: string;
+  dialCode: string;
+  /** Pool of cities for the rotating magical headline */
+  cities: string[];
+  /** Region tiles for the "Nationwide reach" band */
+  regions: { region: string; city: string }[];
+  /** Location options for survey Question 4 */
+  locations: string[];
+}
+
+export const COUNTRIES: CountryData[] = [
+  {
+    name: "Uganda",
+    flag: "🇺🇬",
+    dialCode: "+256",
+    cities: [
+      "Kampala",
+      "Gulu",
+      "Jinja",
+      "Mbarara",
+      "Mbale",
+      "Lira",
+      "Fort Portal",
+      "Entebbe",
+      "Arua",
+      "Soroti",
+      "Masaka",
+      "Hoima",
+      "Kabale",
+    ],
+    regions: [
+      { region: "Central", city: "Kampala · Entebbe" },
+      { region: "Eastern", city: "Jinja · Mbale" },
+      { region: "Northern", city: "Gulu · Lira" },
+      { region: "Western", city: "Mbarara · Fort Portal" },
+    ],
+    locations: [
+      "Kampala (Central)",
+      "Entebbe / Wakiso (Central)",
+      "Jinja (Eastern)",
+      "Mbale (Eastern)",
+      "Gulu (Northern)",
+      "Lira (Northern)",
+      "Mbarara (Western)",
+      "Fort Portal (Western)",
+    ],
+  },
+  {
+    name: "Kenya",
+    flag: "🇰🇪",
+    dialCode: "+254",
+    cities: [
+      "Nairobi",
+      "Mombasa",
+      "Kisumu",
+      "Nakuru",
+      "Eldoret",
+      "Thika",
+      "Malindi",
+      "Kakamega",
+      "Nyeri",
+      "Machakos",
+    ],
+    regions: [
+      { region: "Central", city: "Nairobi · Thika" },
+      { region: "Coast", city: "Mombasa · Malindi" },
+      { region: "Rift Valley", city: "Nakuru · Eldoret" },
+      { region: "Western", city: "Kisumu · Kakamega" },
+    ],
+    locations: [
+      "Nairobi (Central)",
+      "Thika (Central)",
+      "Mombasa (Coast)",
+      "Malindi (Coast)",
+      "Nakuru (Rift Valley)",
+      "Eldoret (Rift Valley)",
+      "Kisumu (Western / Nyanza)",
+      "Kakamega (Western)",
+    ],
+  },
+  {
+    name: "Rwanda",
+    flag: "🇷🇼",
+    dialCode: "+250",
+    cities: [
+      "Kigali",
+      "Musanze",
+      "Rubavu",
+      "Huye",
+      "Muhanga",
+      "Rwamagana",
+      "Nyagatare",
+      "Karongi",
+      "Rusizi",
+    ],
+    regions: [
+      { region: "Kigali City", city: "Kigali · Kicukiro" },
+      { region: "Northern", city: "Musanze · Gicumbi" },
+      { region: "Southern", city: "Huye · Muhanga" },
+      { region: "Western", city: "Rubavu · Karongi" },
+    ],
+    locations: [
+      "Kigali (Kigali City)",
+      "Musanze (Northern)",
+      "Gicumbi (Northern)",
+      "Huye (Southern)",
+      "Muhanga (Southern)",
+      "Rubavu (Western)",
+      "Karongi (Western)",
+      "Rwamagana (Eastern)",
+    ],
+  },
+  {
+    name: "Tanzania",
+    flag: "🇹🇿",
+    dialCode: "+255",
+    cities: [
+      "Dar es Salaam",
+      "Dodoma",
+      "Arusha",
+      "Mwanza",
+      "Zanzibar",
+      "Mbeya",
+      "Moshi",
+      "Tanga",
+      "Morogoro",
+    ],
+    regions: [
+      { region: "Coastal", city: "Dar es Salaam · Tanga" },
+      { region: "Northern", city: "Arusha · Moshi" },
+      { region: "Lake Zone", city: "Mwanza · Musoma" },
+      { region: "Central", city: "Dodoma · Singida" },
+    ],
+    locations: [
+      "Dar es Salaam (Coastal)",
+      "Tanga (Coastal)",
+      "Arusha (Northern)",
+      "Moshi (Northern)",
+      "Mwanza (Lake Zone)",
+      "Dodoma (Central)",
+      "Zanzibar City (Zanzibar)",
+      "Mbeya (Southern Highlands)",
+    ],
+  },
+  {
+    name: "South Sudan",
+    flag: "🇸🇸",
+    dialCode: "+211",
+    cities: [
+      "Juba",
+      "Wau",
+      "Malakal",
+      "Yei",
+      "Aweil",
+      "Bor",
+      "Rumbek",
+      "Torit",
+      "Yambio",
+    ],
+    regions: [
+      { region: "Equatoria", city: "Juba · Yei" },
+      { region: "Bahr el Ghazal", city: "Wau · Aweil" },
+      { region: "Upper Nile", city: "Malakal · Bor" },
+      { region: "Greater Lakes", city: "Rumbek · Torit" },
+    ],
+    locations: [
+      "Juba (Central Equatoria)",
+      "Yei (Central Equatoria)",
+      "Torit (Eastern Equatoria)",
+      "Wau (Western Bahr el Ghazal)",
+      "Aweil (Northern Bahr el Ghazal)",
+      "Malakal (Upper Nile)",
+      "Bor (Jonglei)",
+      "Rumbek (Lakes)",
+    ],
+  },
+  {
+    name: "Nigeria",
+    flag: "🇳🇬",
+    dialCode: "+234",
+    cities: [
+      "Lagos",
+      "Abuja",
+      "Port Harcourt",
+      "Kano",
+      "Ibadan",
+      "Enugu",
+      "Benin City",
+      "Kaduna",
+      "Jos",
+      "Calabar",
+    ],
+    regions: [
+      { region: "South West", city: "Lagos · Ibadan" },
+      { region: "North Central", city: "Abuja · Jos" },
+      { region: "South South", city: "Port Harcourt · Benin City" },
+      { region: "North West", city: "Kano · Kaduna" },
+    ],
+    locations: [
+      "Lagos (South West)",
+      "Ibadan (South West)",
+      "Abuja (North Central)",
+      "Jos (North Central)",
+      "Port Harcourt (South South)",
+      "Benin City (South South)",
+      "Kano (North West)",
+      "Enugu (South East)",
+    ],
+  },
+];
+
+/** Compact data for the rest of Africa */
+export interface OtherCountry {
+  name: string;
+  flag: string;
+  dialCode: string;
+  capital: string;
+}
+
+export const OTHER_AFRICA: OtherCountry[] = [
+  { name: "Algeria", flag: "🇩🇿", dialCode: "+213", capital: "Algiers" },
+  { name: "Angola", flag: "🇦🇴", dialCode: "+244", capital: "Luanda" },
+  { name: "Benin", flag: "🇧🇯", dialCode: "+229", capital: "Cotonou" },
+  { name: "Botswana", flag: "🇧🇼", dialCode: "+267", capital: "Gaborone" },
+  { name: "Burkina Faso", flag: "🇧🇫", dialCode: "+226", capital: "Ouagadougou" },
+  { name: "Burundi", flag: "🇧🇮", dialCode: "+257", capital: "Bujumbura" },
+  { name: "Cameroon", flag: "🇨🇲", dialCode: "+237", capital: "Yaoundé" },
+  { name: "Cape Verde", flag: "🇨🇻", dialCode: "+238", capital: "Praia" },
+  { name: "Central African Republic", flag: "🇨🇫", dialCode: "+236", capital: "Bangui" },
+  { name: "Chad", flag: "🇹🇩", dialCode: "+235", capital: "N'Djamena" },
+  { name: "Comoros", flag: "🇰🇲", dialCode: "+269", capital: "Moroni" },
+  { name: "Congo (Republic)", flag: "🇨🇬", dialCode: "+242", capital: "Brazzaville" },
+  { name: "Côte d'Ivoire", flag: "🇨🇮", dialCode: "+225", capital: "Abidjan" },
+  { name: "DR Congo", flag: "🇨🇩", dialCode: "+243", capital: "Kinshasa" },
+  { name: "Djibouti", flag: "🇩🇯", dialCode: "+253", capital: "Djibouti City" },
+  { name: "Egypt", flag: "🇪🇬", dialCode: "+20", capital: "Cairo" },
+  { name: "Equatorial Guinea", flag: "🇬🇶", dialCode: "+240", capital: "Malabo" },
+  { name: "Eritrea", flag: "🇪🇷", dialCode: "+291", capital: "Asmara" },
+  { name: "Eswatini", flag: "🇸🇿", dialCode: "+268", capital: "Mbabane" },
+  { name: "Ethiopia", flag: "🇪🇹", dialCode: "+251", capital: "Addis Ababa" },
+  { name: "Gabon", flag: "🇬🇦", dialCode: "+241", capital: "Libreville" },
+  { name: "Gambia", flag: "🇬🇲", dialCode: "+220", capital: "Banjul" },
+  { name: "Ghana", flag: "🇬🇭", dialCode: "+233", capital: "Accra" },
+  { name: "Guinea", flag: "🇬🇳", dialCode: "+224", capital: "Conakry" },
+  { name: "Guinea-Bissau", flag: "🇬🇼", dialCode: "+245", capital: "Bissau" },
+  { name: "Lesotho", flag: "🇱🇸", dialCode: "+266", capital: "Maseru" },
+  { name: "Liberia", flag: "🇱🇷", dialCode: "+231", capital: "Monrovia" },
+  { name: "Libya", flag: "🇱🇾", dialCode: "+218", capital: "Tripoli" },
+  { name: "Madagascar", flag: "🇲🇬", dialCode: "+261", capital: "Antananarivo" },
+  { name: "Malawi", flag: "🇲🇼", dialCode: "+265", capital: "Lilongwe" },
+  { name: "Mali", flag: "🇲🇱", dialCode: "+223", capital: "Bamako" },
+  { name: "Mauritania", flag: "🇲🇷", dialCode: "+222", capital: "Nouakchott" },
+  { name: "Mauritius", flag: "🇲🇺", dialCode: "+230", capital: "Port Louis" },
+  { name: "Morocco", flag: "🇲🇦", dialCode: "+212", capital: "Rabat" },
+  { name: "Mozambique", flag: "🇲🇿", dialCode: "+258", capital: "Maputo" },
+  { name: "Namibia", flag: "🇳🇦", dialCode: "+264", capital: "Windhoek" },
+  { name: "Niger", flag: "🇳🇪", dialCode: "+227", capital: "Niamey" },
+  { name: "São Tomé & Príncipe", flag: "🇸🇹", dialCode: "+239", capital: "São Tomé" },
+  { name: "Senegal", flag: "🇸🇳", dialCode: "+221", capital: "Dakar" },
+  { name: "Seychelles", flag: "🇸🇨", dialCode: "+248", capital: "Victoria" },
+  { name: "Sierra Leone", flag: "🇸🇱", dialCode: "+232", capital: "Freetown" },
+  { name: "Somalia", flag: "🇸🇴", dialCode: "+252", capital: "Mogadishu" },
+  { name: "South Africa", flag: "🇿🇦", dialCode: "+27", capital: "Johannesburg" },
+  { name: "Sudan", flag: "🇸🇩", dialCode: "+249", capital: "Khartoum" },
+  { name: "Togo", flag: "🇹🇬", dialCode: "+228", capital: "Lomé" },
+  { name: "Tunisia", flag: "🇹🇳", dialCode: "+216", capital: "Tunis" },
+  { name: "Zambia", flag: "🇿🇲", dialCode: "+260", capital: "Lusaka" },
+  { name: "Zimbabwe", flag: "🇿🇼", dialCode: "+263", capital: "Harare" },
+];
+
+/** Build a full CountryData object from a compact OtherCountry entry */
+export function makeCountryData(c: OtherCountry): CountryData {
+  return {
+    name: c.name,
+    flag: c.flag,
+    dialCode: c.dialCode,
+    cities: [c.capital, "every studio", "every stage", "every street"],
+    regions: [
+      { region: "Capital", city: c.capital },
+      { region: "Northern", city: "Towns & cities" },
+      { region: "Southern", city: "Towns & cities" },
+      { region: "Everywhere", city: "And beyond" },
+    ],
+    locations: [
+      `${c.capital} (Capital)`,
+      "Another major city",
+      "A smaller town / suburb",
+      "A rural area",
+    ],
+  };
+}
