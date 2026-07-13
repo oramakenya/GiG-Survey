@@ -531,9 +531,9 @@ export default function Survey({ country }: { country: CountryData }) {
               Thank you for your <span className="gradient-text italic">time</span>!
             </h2>
             <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-orama-navy/60">
-              We are excited about the creative talent in Uganda. Our team will review your
+              We are excited about the creative talent in Africa. Our team will review your
               responses and reach out to you directly if there is a match for our upcoming
-              programs.
+              programs. Feel free to book an appointment and hear some of the opportunities available now!
             </p>
             <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
               <a
@@ -546,7 +546,7 @@ export default function Survey({ country }: { country: CountryData }) {
                 onClick={() => setSubmitted(false)}
                 className="rounded-full border border-orama-navy/15 px-8 py-3.5 text-sm font-semibold text-orama-navy transition-all hover:bg-orama-orange/5"
               >
-                Submit another response
+                Earn More
               </button>
             </div>
           </div>
@@ -591,7 +591,6 @@ export default function Survey({ country }: { country: CountryData }) {
         <form 
   action="https://formspree.io/f/mnjeqdwj" 
   method="POST" 
-  onSubmit={handleSubmit} 
   className="mt-10 space-y-6"
 >
   <input 
