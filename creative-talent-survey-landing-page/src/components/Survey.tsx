@@ -588,7 +588,12 @@ export default function Survey({ country }: { country: CountryData }) {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-10 space-y-6">
+        <form 
+  action="https://formspree.io/f/mnjeqdwj" 
+  method="POST" 
+  onSubmit={handleSubmit} 
+  className="mt-10 space-y-6"
+>
   <input 
     type="hidden" 
     name="_next" 
