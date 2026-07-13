@@ -38,12 +38,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="mb-4 text-xs font-bold tracking-widest text-white/40 uppercase">
+            {/* Removed the uppercase class from this line */}
+            <p className="mb-4 text-xs font-bold tracking-widest text-white/40">
               Get in touch
             </p>
             <ul className="space-y-3 text-sm text-white/70">
-              <li>hello@creativesconnect.africa</li>
-              <li>WhatsApp: +256 700 000 000</li>
+              {/* Capitalized the E in Email */}
+              <li>Email: gig.forafrica@gmail.com</li>
+              <li>WhatsApp: (+254) 743224556</li>
+              <li>Phone: (+256) 769902402</li>
               <li>Kampala, Uganda</li>
             </ul>
           </div>

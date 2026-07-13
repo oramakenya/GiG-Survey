@@ -37,8 +37,35 @@ const DISCIPLINE_POOL = [
 
 const VISIBLE_SLOTS = 10;
 
+/** Orange, navy & royal blue theme variants, randomly assigned per pill */
+const PILL_VARIANTS = [
+  "border-orama-navy/10 bg-white text-orama-navy/70",
+  "border-orama-orange/30 bg-orama-orange/10 text-orama-orange",
+  "border-transparent bg-orama-navy text-white/90",
+  "border-transparent bg-orama-orange text-white",
+  "border-orama-navy/20 bg-orama-navy/5 text-orama-navy/60",
+  "border-orama-orange/40 bg-white text-orama-orange",
+  "border-transparent bg-[#2743a6] text-white",
+  "border-[#2743a6]/30 bg-[#2743a6]/10 text-[#2743a6]",
+  "border-[#2743a6]/40 bg-white text-[#2743a6]",
+];
+
+interface Pill {
+  label: string;
+  variant: string;
+}
+
+const randomStyle = () => ({
+  variant: PILL_VARIANTS[Math.floor(Math.random() * PILL_VARIANTS.length)],
+});
+
 function RotatingDisciplines() {
-  const [items, setItems] = useState<string[]>(DISCIPLINE_POOL.slice(0, VISIBLE_SLOTS));
+  const [items, setItems] = useState<Pill[]>(() =>
+    DISCIPLINE_POOL.slice(0, VISIBLE_SLOTS).map((label) => ({
+      label,
+      ...randomStyle(),
+    }))
+  );
   const [fadingSlot, setFadingSlot] = useState<number | null>(null);
   const itemsRef = useRef(items);
   itemsRef.current = items;
@@ -50,10 +77,11 @@ function RotatingDisciplines() {
       setTimeout(() => {
         setItems((prev) => {
           // never allow two of the same on screen: pick only from what's not displayed
-          const pool = DISCIPLINE_POOL.filter((d) => !prev.includes(d));
+          const shown = prev.map((p) => p.label);
+          const pool = DISCIPLINE_POOL.filter((d) => !shown.includes(d));
           const next = pool[Math.floor(Math.random() * pool.length)];
           const copy = [...prev];
-          copy[slot] = next;
+          copy[slot] = { label: next, ...randomStyle() };
           return copy;
         });
         setFadingSlot(null);
@@ -63,17 +91,17 @@ function RotatingDisciplines() {
   }, []);
 
   return (
-    <div className="mt-8 flex flex-wrap gap-2">
-      {items.map((d, i) => (
+    <div className="mx-auto mt-8 flex max-w-xl flex-wrap items-center justify-center gap-x-2 gap-y-3">
+      {items.map((p, i) => (
         <span
           key={i}
-          className={`rounded-full border border-orama-navy/10 bg-white px-4 py-2 text-sm font-medium text-orama-navy/80 shadow-sm transition-all duration-400 ${
+          className={`rounded-full border px-3 py-1 text-xs font-medium shadow-sm transition-all duration-400 ${p.variant} ${
             fadingSlot === i
               ? "scale-90 opacity-0 blur-[2px]"
               : "scale-100 opacity-100 blur-0"
           }`}
         >
-          {d}
+          {p.label}
         </span>
       ))}
     </div>

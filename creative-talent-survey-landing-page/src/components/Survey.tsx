@@ -16,6 +16,8 @@ const DISCIPLINES = [
   "Crafts & Maker Arts (Ceramics, Textiles, Jewelry)",
 ];
 
+const AGE_BRACKETS = ["12 – 20", "21 – 35", "36 – 47", "48+"];
+
 const EXPERIENCE = ["Less than 1 year", "1 to 3 years", "4 to 7 years", "8 to 10 years", "Over 10 years"];
 
 const EMPLOYMENT = [
@@ -421,6 +423,7 @@ export default function Survey({ country }: { country: CountryData }) {
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [ageBracket, setAgeBracket] = useState("");
   const [location, setLocation] = useState("");
   const [locationOther, setLocationOther] = useState("");
   const [primary, setPrimary] = useState("");
@@ -476,6 +479,7 @@ export default function Survey({ country }: { country: CountryData }) {
       fullName,
       phone,
       email,
+      ageBracket,
       location,
       primary,
       experience,
@@ -498,9 +502,9 @@ export default function Survey({ country }: { country: CountryData }) {
       Object.keys(alignmentRatings).length >= ALIGNMENT_STATEMENTS.length ? "x" : "",
       secondary.length > 0 ? "x" : "",
     ].filter(Boolean).length;
-    return Math.round((answered / 24) * 100);
+    return Math.round((answered / 25) * 100);
   }, [
-    fullName, phone, email, location, primary, experience, employment, income,
+    fullName, phone, email, ageBracket, location, primary, experience, employment, income,
     portfolio, training, taught, ageGroups, teachSkills, teachNeeds, initiatives,
     timeCommit, compensation, attractions, challenges, roadblocks, featureRatings,
     awesomeRatings, alignmentRatings, secondary, skipTeaching,
@@ -585,13 +589,18 @@ export default function Survey({ country }: { country: CountryData }) {
         </div>
 
         <form onSubmit={handleSubmit} className="mt-10 space-y-6">
-          {/* ---------- SECTION 1 ---------- */}
-          <SectionHeader
-            index={1}
-            title="Getting to Know You"
-            subtitle="Understanding who you are and where you are based."
-          />
-
+  <input 
+    type="hidden" 
+    name="_next" 
+    value="https://creativesurveyafrica.netlify.app/thankyou.html" 
+  />
+  
+  {/* ---------- SECTION 1 ---------- */}
+  <SectionHeader
+    index={1}
+    title="Getting to Know You"
+    subtitle="Understanding who you are and where you are based."
+  />
           <QuestionBlock number={1} label="Full Name">
             <TextInput
               required
@@ -620,7 +629,11 @@ export default function Survey({ country }: { country: CountryData }) {
             />
           </QuestionBlock>
 
-          <QuestionBlock number={4} label={`Where are you currently based in ${country.name}?`}>
+          <QuestionBlock number={4} label="What is your age bracket?">
+            <RadioGroup options={AGE_BRACKETS} value={ageBracket} onChange={setAgeBracket} />
+          </QuestionBlock>
+
+          <QuestionBlock number={5} label={`Where are you currently based in ${country.name}?`}>
             <RadioGroup
               options={country.locations}
               value={location}
@@ -631,7 +644,7 @@ export default function Survey({ country }: { country: CountryData }) {
           </QuestionBlock>
 
           <QuestionBlock
-            number={5}
+            number={6}
             label="What is your primary creative discipline?"
             hint="Select the one you focus on most."
           >
@@ -645,7 +658,7 @@ export default function Survey({ country }: { country: CountryData }) {
           </QuestionBlock>
 
           <QuestionBlock
-            number={6}
+            number={7}
             label="Do you practice any secondary creative disciplines?"
             hint="Check all that apply."
           >
@@ -657,7 +670,7 @@ export default function Survey({ country }: { country: CountryData }) {
           </QuestionBlock>
 
           <QuestionBlock
-            number={7}
+            number={8}
             label="How many years of experience do you have in your primary creative field?"
           >
             <RadioGroup options={EXPERIENCE} value={experience} onChange={setExperience} />
@@ -670,11 +683,11 @@ export default function Survey({ country }: { country: CountryData }) {
             subtitle="Understanding your current practice and professional background."
           />
 
-          <QuestionBlock number={8} label="Which best describes your current employment status?">
+          <QuestionBlock number={9} label="Which best describes your current employment status?">
             <RadioGroup options={EMPLOYMENT} value={employment} onChange={setEmployment} />
           </QuestionBlock>
 
-          <QuestionBlock number={9} label="How do you currently earn most of your income?">
+          <QuestionBlock number={10} label="How do you currently earn most of your income?">
             <RadioGroup
               options={INCOME}
               value={income}
@@ -685,7 +698,7 @@ export default function Survey({ country }: { country: CountryData }) {
           </QuestionBlock>
 
           <QuestionBlock
-            number={10}
+            number={11}
             label="Please share a link to your portfolio, social media page (Instagram, TikTok, YouTube), or website where we can see your work:"
             hint="If you don't have a link, you can email 3–5 examples of your work to gig.forafrica@gmail.com."
           >
@@ -697,7 +710,7 @@ export default function Survey({ country }: { country: CountryData }) {
           </QuestionBlock>
 
           <QuestionBlock
-            number={11}
+            number={12}
             label="Do you have any formal training, certifications, or degrees in your field?"
           >
             <RadioGroup options={TRAINING} value={training} onChange={setTraining} />
@@ -718,13 +731,13 @@ export default function Survey({ country }: { country: CountryData }) {
           />
 
           <QuestionBlock
-            number={12}
+            number={13}
             label="Have you ever taught, mentored, or run workshops in your creative field?"
           >
             <RadioGroup options={TAUGHT} value={taught} onChange={setTaught} />
             {skipTeaching && (
               <p className="animate-fade-in mt-4 rounded-xl bg-orama-orange/10 px-4 py-3 text-sm font-medium text-orama-orange">
-                No problem — questions 13–15 have been skipped. Continue to Section 4 below.
+                No problem — questions 14–16 have been skipped. Continue to Section 4 below.
               </p>
             )}
           </QuestionBlock>
@@ -732,7 +745,7 @@ export default function Survey({ country }: { country: CountryData }) {
           {!skipTeaching && (
             <>
               <QuestionBlock
-                number={13}
+                number={14}
                 label="Which age groups or skill levels do you feel most comfortable teaching?"
                 hint="Check all that apply."
               >
@@ -744,7 +757,7 @@ export default function Survey({ country }: { country: CountryData }) {
               </QuestionBlock>
 
               <QuestionBlock
-                number={14}
+                number={15}
                 label="If you were to teach a class, what 1 or 2 specific skills would you focus on?"
                 hint='e.g., "Portrait photography with natural light," "Audio mixing for Afrobeats," "Basics of watercolor"'
               >
@@ -756,7 +769,7 @@ export default function Survey({ country }: { country: CountryData }) {
               </QuestionBlock>
 
               <QuestionBlock
-                number={15}
+                number={16}
                 label="What materials, software, or equipment would you absolutely need to teach your specific skill?"
               >
                 <TextArea
@@ -776,7 +789,7 @@ export default function Survey({ country }: { country: CountryData }) {
           />
 
           <QuestionBlock
-            number={16}
+            number={17}
             label="Which kinds of opportunities interest you?"
             hint="Check all that apply."
           >
@@ -789,14 +802,14 @@ export default function Survey({ country }: { country: CountryData }) {
           </QuestionBlock>
 
           <QuestionBlock
-            number={17}
+            number={18}
             label="How much time could you realistically commit to an opportunity (like teaching or collaborating) right now?"
           >
             <RadioGroup options={TIME_COMMIT} value={timeCommit} onChange={setTimeCommit} />
           </QuestionBlock>
 
           <QuestionBlock
-            number={18}
+            number={19}
             label="What is your preferred compensation structure for teaching or collaborating?"
           >
             <RadioGroup
@@ -816,7 +829,7 @@ export default function Survey({ country }: { country: CountryData }) {
           />
 
           <QuestionBlock
-            number={19}
+            number={20}
             label="What would make an opportunity (like teaching or taking on a gig) most attractive to you?"
             hint={`Select up to 3. (${attractions.length}/3 selected)`}
           >
@@ -829,7 +842,7 @@ export default function Survey({ country }: { country: CountryData }) {
           </QuestionBlock>
 
           <QuestionBlock
-            number={20}
+            number={21}
             label="Do you anticipate any logistical challenges that might prevent you from participating in these programs?"
             hint="e.g., transportation, internet access, lack of personal equipment"
           >
@@ -848,7 +861,7 @@ export default function Survey({ country }: { country: CountryData }) {
           />
 
           <QuestionBlock
-            number={21}
+            number={22}
             label="What are the biggest roadblocks or pain points currently holding you back in your creative career?"
             hint={`Select up to 3. (${roadblocks.length}/3 selected)`}
           >
@@ -870,7 +883,7 @@ export default function Survey({ country }: { country: CountryData }) {
           </QuestionBlock>
 
           <QuestionBlock
-            number={22}
+            number={23}
             label="Please rate how important each of the following features is to keeping you happy and motivated."
             hint="1 = Not at all important, 5 = Extremely important"
           >
@@ -884,7 +897,7 @@ export default function Survey({ country }: { country: CountryData }) {
           </QuestionBlock>
 
           <QuestionBlock
-            number={23}
+            number={24}
             label="To ensure a teaching or collaborative experience feels 'awesome' rather than just like a regular job, please rate how much you agree with the following statements."
             hint="1 = Strongly Disagree, 5 = Strongly Agree"
           >
@@ -898,7 +911,7 @@ export default function Survey({ country }: { country: CountryData }) {
           </QuestionBlock>
 
           <QuestionBlock
-            number={24}
+            number={25}
             label="Thinking about your current creative journey and career goals, please rate how accurately the following statements describe you right now."
             hint="1 = Does not describe me at all, 5 = Describes me perfectly"
           >
