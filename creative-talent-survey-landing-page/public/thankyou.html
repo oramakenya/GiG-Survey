@@ -12,10 +12,15 @@
     <!-- Optional: Add a link to an image here later so a picture shows up in WhatsApp -->
     <!-- <meta property="og:image" content="LINK_TO_YOUR_LOGO_OR_IMAGE"> -->
 
+    <!-- Tailwind & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Adding your custom brand colors -->
+    <!-- Calendly Asset Links for Popup -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+    <!-- Custom Brand Colors -->
     <script>
         tailwind.config = {
             theme: {
@@ -47,15 +52,16 @@
         <p class="text-white/70 mb-8 leading-relaxed">
             Your profile is in our system. Our team reviews talent daily—keep an eye on your WhatsApp and inbox for your next steps.
         </p>
-        <!-- Schedule Button -->
+        
+        <!-- Schedule Button (Triggers Popup) -->
         <button 
           onclick="Calendly.initPopupWidget({url: 'https://calendly.com/orama-kenya/30min'});return false;"
-          class="w-full py-4 rounded-xl font-bold text-white transition-all duration-300 bg-orama-orange hover:bg-orange-600 shadow-lg shadow-orama-orange/20"
+          class="w-full py-4 rounded-xl font-bold text-white transition-all duration-300 bg-orama-orange hover:bg-orange-600 shadow-lg shadow-orama-orange/20 mb-8"
         >
           Schedule Your Consultation
         </button>
         
-        <!-- Premium Interview Callout Box -->
+        <!-- Premium Interview Callout Box (Direct Link) -->
         <div class="bg-white/5 rounded-xl p-6 mb-10 border border-white/10 text-left">
             <h2 class="text-lg font-semibold text-white mb-2 flex items-center">
                 <span class="bg-orama-orange w-2 h-2 rounded-full mr-2"></span>
@@ -69,7 +75,7 @@
         </div>
 
         <!-- Share Section -->
-        <div class="border-t border-white/10 pt-8 mb-2">
+        <div class="border-t border-white/10 pt-8">
             <h3 class="text-sm font-bold tracking-widest text-white/40 uppercase mb-4">Help us map the network</h3>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -88,13 +94,7 @@
         </div>
         
     </div>
-<div style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
-  <button 
-    class="orama-button" 
-    onclick="Calendly.initPopupWidget({url: 'https://calendly.com/orama-kenya/30min'});return false;">
-    Schedule a Call
-  </button>
-</div>
+    
     <script>
         // 🚨 UPDATE THIS: Change this to your final Netlify URL before deploying!
         const SURVEY_URL = 'https://creativesurveyafrica.netlify.app'; 
@@ -117,10 +117,5 @@
             }
         }
     </script>
-<!-- Calendly badge widget begin -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/orama-kenya/30min', text: 'Schedule time with me', color: '#2f4c75', textColor: '#e2b347', branding: true }); }</script>
-<!-- Calendly badge widget end -->
 </body>
 </html>
