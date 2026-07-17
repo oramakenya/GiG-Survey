@@ -725,7 +725,7 @@ export default function Survey({ country }: { country: CountryData }) {
   const sec = () => ++sn;
 
   const customSubmitHandler = async (e: any) => {
-    alert("JavaScript is executing!");
+  
     e.preventDefault(); 
     const form = e.currentTarget;
     const data = new FormData(form);
