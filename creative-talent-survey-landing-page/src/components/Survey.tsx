@@ -723,6 +723,27 @@ export default function Survey({ country }: { country: CountryData }) {
   const num = () => ++qn;
   let sn = 1;
   const sec = () => ++sn;
+  const customSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); 
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        window.location.href = "/thankyou.html"; 
+      } else {
+        alert("There was an issue submitting your form. Please try again.");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+    }
+  };
   return (
     <section id="survey" className="bg-orama-cream py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
@@ -757,6 +778,7 @@ export default function Survey({ country }: { country: CountryData }) {
         <form
           action="https://formspree.io/f/mnjeqdwj"
           method="POST"
+          onSubmit={customSubmitHandler}
           className="mt-10 space-y-6"
         >
           <input
