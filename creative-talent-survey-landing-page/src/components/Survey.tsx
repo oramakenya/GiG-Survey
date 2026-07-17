@@ -719,17 +719,19 @@ export default function Survey({ country }: { country: CountryData }) {
     isCreative, isAspiring, isHustler, isClient, skipTeaching,
   ]);
   /* ---------- dynamic question numbering ---------- */
-  let qn = 0;
+ let qn = 0;
   const num = () => ++qn;
   let sn = 1;
   const sec = () => ++sn;
-  const customSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+
+  const customSubmitHandler = async (e: any) => {
     e.preventDefault(); 
     const form = e.currentTarget;
     const data = new FormData(form);
 
     try {
-      const response = await fetch(form.action, {
+      // Hardcoding the URL here so we can remove it from the HTML
+      const response = await fetch("https://formspree.io/f/mnjeqdwj", {
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
@@ -744,6 +746,7 @@ export default function Survey({ country }: { country: CountryData }) {
       console.error("Network error:", error);
     }
   };
+
   return (
     <section id="survey" className="bg-orama-cream py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
