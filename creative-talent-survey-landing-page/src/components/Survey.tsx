@@ -880,7 +880,7 @@ export default function Survey({ country }: { country: CountryData }) {
           <SectionHeader
             index={1}
             title="Getting to Know You"
-            subtitle="Understanding who you are — the rest of the survey adapts to your answers."
+            subtitle="Understanding who you are — the rest of the survey adapts to your answers. Note: Feel free to skip any contact question that would seem an invasion of privacy but we do encourage you to leave at least one contact point (email or phone number) for any questions on this matter, please refer to the privacy policy."
           />
           <QuestionBlock number={num()} label="Full Name">
             <TextInput
@@ -888,7 +888,7 @@ export default function Survey({ country }: { country: CountryData }) {
               name="full_name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              placeholder="Your full name"
+              placeholder="Your full name (Optional if you prefer to remain anonymous)"
             />
           </QuestionBlock>
           <QuestionBlock number={num()} label="Phone Number / WhatsApp">
