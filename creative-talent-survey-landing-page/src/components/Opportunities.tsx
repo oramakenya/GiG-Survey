@@ -438,8 +438,8 @@ export default function Opportunities({
             </div>
             <div className="md:w-2/3">
               <p className="text-lg leading-relaxed text-orama-navy/70">
-                Whether you are a seasoned professional, a self-taught artist, or an
-                experienced educator — we want to hear from you. This survey takes about{" "}
+                Whether you are a seasoned professional, a self-taught artist, someone who wants to earn more money through their creativity, an
+                experienced educator, or someone who knows one — we want to hear from you. This survey takes about{" "}
                 <span className="font-semibold text-orama-navy">10–15 minutes</span> to
                 complete. Your responses remain{" "}
                 <span className="font-semibold text-orama-navy">confidential</span> and are
