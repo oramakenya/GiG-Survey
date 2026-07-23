@@ -35,19 +35,14 @@ export default function Hero() {
           </p>
 
           <div className="animate-fade-in-up delay-300 mt-10 flex flex-col gap-4 sm:flex-row">
-            <a
-              href="#survey"
-              className="animate-pulse-glow rounded-full bg-orama-orange px-8 py-4 text-center text-base font-semibold text-white shadow-xl transition-all hover:-translate-y-1 hover:bg-orama-orange-light active:translate-y-0"
-            >
-              Start the Survey →
-            </a>
-            <a
-              href="#about"
-              className="rounded-full border border-white/20 px-8 py-4 text-center text-base font-semibold text-white/80 transition-all hover:bg-white/10 hover:text-white"
-            >
-              Learn More
-            </a>
-          </div>
+  {/* Primary CTA - Now points to #about and replaces Learn More */}
+  <a
+    href="#about"
+    className="animate-pulse-glow rounded-full bg-orama-orange px-8 py-4 text-center text-base font-semibold text-white shadow-xl transition-all hover:-translate-y-1 hover:bg-orama-orange-light active:translate-y-0"
+  >
+    Start the Survey →
+  </a>
+</div>
 
           <div className="animate-fade-in-up delay-500 mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4">
             {[

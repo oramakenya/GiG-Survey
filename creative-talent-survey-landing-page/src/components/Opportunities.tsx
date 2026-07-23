@@ -433,7 +433,7 @@ export default function Opportunities({
                 Why this survey
               </p>
               <h2 className="font-serif text-4xl font-bold text-orama-navy sm:text-5xl">
-                Every creative <span className="gradient-text italic">counts</span>.
+                Every thought <span className="gradient-text italic">counts</span>.
               </h2>
             </div>
             <div className="md:w-2/3">
