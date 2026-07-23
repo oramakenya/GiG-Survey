@@ -29,9 +29,7 @@ export default function Hero() {
             more doing it.
           </h1>
           <p className="animate-fade-in-up delay-200 mt-8 max-w-xl text-lg leading-relaxed text-white/70 sm:text-xl">
-            Would you love to connect with creatives across Africa and earn more money
-            doing what you love? Take a few minutes to tell us about your craft — and
-            we'll match you with opportunities built for you.
+            Turn your voice into impact and your passion into profit. Tell us about your craft and your interaction with the African Creative Space. To get matched with exclusive opportunities and to begin a movement of change, let your voice be heard! Take the survey, and let's shape the African creative landscape together.
           </p>
 
           <div className="animate-fade-in-up delay-300 mt-10 flex flex-col gap-4 sm:flex-row">
